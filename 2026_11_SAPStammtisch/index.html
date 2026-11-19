@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAP TechEd 2026 – Community-Update</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lib/reset.css">
+<link rel="stylesheet" href="lib/reveal.css">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<!-- Dezente Frankfurter Skyline (symbolisch), liegt hinter allen Folien -->
+<div class="skyline" aria-hidden="true">
+  <svg viewBox="0 0 1600 220" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <linearGradient id="skyFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8fb0ff" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#8fb0ff" stop-opacity=".18"/>
+      </linearGradient>
+    </defs>
+    <g fill="url(#skyFade)">
+      <!-- Vorstadt links -->
+      <rect x="0" y="170" width="40" height="40"/><rect x="44" y="160" width="30" height="50"/><rect x="78" y="176" width="40" height="34"/>
+      <!-- Europaturm -->
+      <rect x="138.5" y="0" width="3" height="70"/>
+      <ellipse cx="140" cy="78" rx="26" ry="9"/><ellipse cx="140" cy="93" rx="17" ry="5"/>
+      <rect x="134" y="70" width="12" height="140"/>
+      <rect x="160" y="172" width="44" height="38"/><rect x="208" y="164" width="34" height="46"/><rect x="246" y="178" width="46" height="32"/>
+      <!-- Kaiserdom -->
+      <rect x="306" y="120" width="48" height="90"/><rect x="314" y="78" width="32" height="42"/>
+      <polygon points="314,78 330,30 346,78"/><rect x="328.5" y="12" width="3" height="20"/>
+      <!-- Römer (Treppengiebel) -->
+      <polygon points="370,210 370,160 378,160 378,150 386,150 386,140 394,140 394,150 402,150 402,160 410,160 410,210"/>
+      <polygon points="412,210 412,164 420,164 420,154 428,154 428,144 436,144 436,154 444,154 444,164 452,164 452,210"/>
+      <polygon points="454,210 454,158 462,158 462,148 470,148 470,138 478,138 478,148 486,148 486,158 494,158 494,210"/>
+      <rect x="498" y="176" width="40" height="34"/>
+      <!-- Main Tower -->
+      <rect x="718.5" y="4" width="3" height="40"/>
+      <path d="M698 210 V58 Q698 40 720 40 Q742 40 742 58 V210 Z"/>
+      <rect x="660" y="120" width="34" height="90"/><rect x="620" y="150" width="36" height="60"/><rect x="580" y="168" width="36" height="42"/>
+      <!-- Commerzbank Tower -->
+      <rect x="799" y="0" width="2.5" height="20"/>
+      <polygon points="776,210 776,34 800,18 824,34 824,210"/>
+      <rect x="748" y="96" width="26" height="114"/>
+      <!-- Trianon -->
+      <rect x="866" y="66" width="30" height="144"/><polygon points="860,66 902,66 892,46 870,46"/>
+      <rect x="828" y="110" width="34" height="100"/>
+      <!-- Tower 185 / Skyper -->
+      <path d="M906 210 V70 Q930 50 954 70 V210 Z"/><rect x="958" y="96" width="30" height="114"/>
+      <!-- Messeturm -->
+      <rect x="1006" y="46" width="40" height="164"/><polygon points="1006,46 1026,10 1046,46"/>
+      <rect x="1050" y="120" width="30" height="90"/>
+      <!-- Opernturm / Westend -->
+      <rect x="1086" y="80" width="34" height="130"/><path d="M1124 210 V84 L1142 70 L1160 84 V210 Z"/>
+      <rect x="1164" y="132" width="40" height="78"/><rect x="1208" y="60" width="28" height="150"/><rect x="1240" y="104" width="32" height="106"/>
+      <!-- EZB (zwei Scheiben) -->
+      <polygon points="1340,210 1342,52 1366,46 1366,210"/>
+      <polygon points="1369,210 1369,60 1392,54 1396,210"/>
+      <rect x="1290" y="164" width="44" height="46"/><rect x="1400" y="172" width="40" height="38"/>
+      <!-- Sachsenhausen -->
+      <rect x="1446" y="178" width="36" height="32"/><polygon points="1486,210 1486,180 1502,168 1518,180 1518,210"/>
+      <rect x="1522" y="174" width="34" height="36"/><rect x="1560" y="182" width="40" height="28"/>
+      <rect x="0" y="208" width="1600" height="12"/>
+    </g>
+    <!-- Eiserner Steg -->
+    <path d="M540 196 Q590 150 640 196" fill="none" stroke="#8fb0ff" stroke-opacity=".3" stroke-width="3"/>
+    <path d="M540 196 L640 196" stroke="#8fb0ff" stroke-opacity=".3" stroke-width="3"/>
+  </svg>
+</div>
+
+<div class="footer" aria-hidden="true">
+  <img src="assets/bembel.png" alt="">
+  <span>SAP Stammtisch Frankfurt · SAP TechEd 2026 Community-Update · 18. November 2026</span>
+</div>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ============ 1 Titel ============ -->
+<section id="titel" data-id="titel" data-state="photo"
+  data-background-image="assets/stammtisch-night.jpg" data-background-size="cover" data-background-position="right center">
+  <div class="title-overlay"></div>
+  <div class="title-wrap">
+    <p class="kicker">SAP Stammtisch Frankfurt</p>
+    <h1>SAP TechEd 2026 <span class="gold">&amp; Community-Update</span></h1>
+    <p class="lead">Vom KI-Assistenten zum autonomen Agenten – und ein Nachbeben im ABAP-Umfeld</p>
+    <div class="title-meta">
+      <p class="ed"><strong>Christian Braukmüller</strong></p>
+      <p class="ed">18. November 2026 · Frankfurt am Main</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 Agenda ============ -->
+<section id="agenda" data-id="agenda">
+  <p class="kicker">Agenda</p>
+  <h2>Was uns heute Abend beschäftigt</h2>
+  <ol class="agenda">
+    <li class="fragment fade-up"><a href="#/joule"><span class="num">1</span><span class="ed">SAP-Managed Joule vs. Custom Joule</span></a></li>
+    <li class="fragment fade-up"><a href="#/hub"><span class="num">2</span><span class="ed">SAP AI Agent Hub &amp; Enterprise AI Gateway</span></a></li>
+    <li class="fragment fade-up"><a href="#/studio"><span class="num">3</span><span class="ed">Joule Studio Classic vs. neues Joule Studio</span></a></li>
+    <li class="fragment fade-up"><a href="#/zert"><span class="num">4</span><span class="ed">Zertifizierungsangebot bis 31.12.2026</span></a></li>
+    <li class="fragment fade-up"><a href="#/abap"><span class="num">5</span><span class="ed">Nachbeben: Aus für das ABAP Cloud Developer Trial</span></a></li>
+  </ol>
+  <img class="agenda-bembel" src="assets/bembel.png" alt="Bembel SAP Stammtisch Frankfurt" data-noedit>
+</section>
+
+<!-- ============ 3 Überblick ============ -->
+<section id="ueberblick" data-id="ueberblick">
+  <p class="kicker">SAP TechEd 2026 · Ende Oktober · Berlin &amp; virtuell</p>
+  <h2>Leitmotiv: <span class="gold">„Autonomous Enterprise“</span></h2>
+  <div class="shift">
+    <div class="shift-box">
+      <h3>KI-Assistent</h3>
+      <p>beantwortet Fragen, unterstützt einzelne Schritte</p>
+    </div>
+    <div class="shift-arrow" data-noedit><span></span></div>
+    <div class="shift-box accent">
+      <h3>Autonomer KI-Agent</h3>
+      <p>plant, delegiert und führt Prozesse End-to-End aus</p>
+    </div>
+  </div>
+  <div class="note fragment fade-up">
+    <p><strong>Und direkt danach:</strong> Eine Entscheidung im ABAP-Umfeld sorgt in der Community für heftige Diskussionen.</p>
+  </div>
+</section>
+
+<!-- ============ 4 Kap. 1 Joule ============ -->
+<section id="joule" data-id="joule">
+  <p class="kicker"><span class="chap">1</span>Bereitstellung &amp; Betrieb</p>
+  <h2>SAP-Managed Joule vs. Custom Joule</h2>
+  <div class="compare">
+    <div class="ch"></div>
+    <div class="ch managed"><h3>SAP-Managed Joule</h3><p class="tag">Neuer Standardweg</p></div>
+    <div class="ch custom"><h3>Custom Joule</h3><p class="tag">Customer-Managed</p></div>
+
+    <div class="rl"><p>Setup &amp; Betrieb</p></div>
+    <div class="cell managed"><p>SAP übernimmt Provisionierung, Setup und Laufzeitbetrieb – kein manuelles BTP-Subaccount-Wiring mehr.</p></div>
+    <div class="cell"><p>Kunde verwaltet Integration, Subaccounts, Destinations und Backend-Berechtigungen selbst auf der BTP.</p></div>
+
+    <div class="rl"><p>Oberfläche &amp; Einstieg</p></div>
+    <div class="cell managed"><p><strong>Joule Work</strong> – neuer zentraler KI-Workspace für Web, Desktop &amp; Mobile – plus eingebettetes Joule.</p></div>
+    <div class="cell"><p>SAP Build Work Zone / Fiori Launchpads über eigene BTP-Konfiguration.</p></div>
+
+    <div class="rl"><p>Custom Agents &amp; Kosten</p></div>
+    <div class="cell managed"><p>Ausgewählte Kunden betreiben eigene Agenten bis <strong>Ende Dezember 2026 kostenlos</strong> auf der SAP-verwalteten Joule-Studio-Runtime.</p></div>
+    <div class="cell"><p>Abrechnung über das eigene BTP-Consumption-Modell (AI Units / BTP-Credits).</p></div>
+
+    <div class="rl"><p>Wann sinnvoll?</p></div>
+    <div class="cell managed"><p>Schnelle Produktivsetzung, wenig Betriebsaufwand. Für Cloud ERP Private <strong>ab Q4 2026 GA</strong>.</p></div>
+    <div class="cell"><p>Wenn tiefe Eigenkontrolle über Netzwerke/Policies oder bestehende On-Premise-RFC-Szenarien nötig ist.</p></div>
+  </div>
+</section>
+
+<!-- ============ 5 Kap. 2a Hub & Gateway ============ -->
+<section id="hub" data-id="hub">
+  <p class="kicker"><span class="chap">2</span>Gegen den „Agenten-Wildwuchs“</p>
+  <h2>Ein architektonisches Doppel</h2>
+  <div class="two-col">
+    <div class="card">
+      <p class="card-label">Steuerung &amp; Governance</p>
+      <h3>SAP AI Agent Hub</h3>
+      <ul>
+        <li class="fragment fade-up"><strong>AI Registry</strong>, anbieterunabhängig: SAP-Agenten, Drittanbieter (Azure, Google Cloud, AWS, ServiceNow, Databricks), MCP-Server und LLMs</li>
+        <li class="fragment fade-up">Kontext aus <strong>SAP LeanIX</strong> und <strong>SAP Signavio</strong>: Architektur und Prozesse</li>
+        <li class="fragment fade-up">Lebenszyklus <strong>Define → Verify → Enforce</strong>, Risikoklassen (EU AI Act), Compliance und Agent-Mining</li>
+      </ul>
+    </div>
+    <div class="card card-gold">
+      <p class="card-label">Runtime Enforcement</p>
+      <h3>SAP Enterprise AI Gateway</h3>
+      <ul>
+        <li class="fragment fade-up">Einheitliche Laufzeit- und Sicherheitsschicht</li>
+        <li class="fragment fade-up">Jede Kommunikation zwischen Agent und Systemen, APIs oder MCP-Servern läuft hier durch, ob SAP oder extern</li>
+        <li class="fragment fade-up">Routet Modellanfragen und protokolliert jeden Aufruf revisionssicher</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 Kap. 2b Zusammenspiel ============ -->
+<section id="zusammenspiel" data-id="zusammenspiel">
+  <p class="kicker"><span class="chap">2</span>Das Zusammenspiel</p>
+  <h2>Hub definiert, Gateway setzt durch</h2>
+  <div class="flow">
+    <div class="flow-hub">
+      <h3>AI Agent Hub</h3>
+      <p>Wer darf was? Welche MCP-Server sind verifiziert? Welche Kosten- und Token-Limits gelten?</p>
+    </div>
+    <div class="flow-v" data-noedit>
+      <div class="vline down"></div><span class="vlabel l">Richtlinien</span>
+      <div class="vline up"></div><span class="vlabel r">Protokolle</span>
+    </div>
+    <div class="flow-row">
+      <div class="flow-col">
+        <div class="pill">Joule-Agenten</div>
+        <div class="pill">Pro-Code-Agenten</div>
+        <div class="pill p-block">Externer Agent</div>
+      </div>
+      <div class="flow-lines" data-noedit>
+        <div class="hline"></div><div class="hline"></div><div class="hline l-block"></div>
+      </div>
+      <div class="flow-gw">
+        <h3>Enterprise AI Gateway</h3>
+        <p>prüft · routet · protokolliert</p>
+      </div>
+      <div class="flow-lines" data-noedit>
+        <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+      </div>
+      <div class="flow-col">
+        <div class="pill sys">SAP-Systeme &amp; APIs</div>
+        <div class="pill sys">MCP-Server</div>
+        <div class="pill sys">LLMs</div>
+      </div>
+    </div>
+    <div class="flow-block fragment" data-fragment-index="1">
+      <p><span class="x" data-noedit>✕</span> Freigabe im Hub entzogen: Das Gateway blockiert den Zugriff sofort.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 Kap. 3a Strategiewechsel ============ -->
+<section id="studio" data-id="studio">
+  <p class="kicker"><span class="chap">3</span>Namens- &amp; Technologiewechsel</p>
+  <h2>Von Low-Code zu Intent-Based + Pro-Code</h2>
+  <div class="three-col">
+    <div class="card card-dim fragment fade-up">
+      <p class="card-label warn">läuft aus</p>
+      <h3>Joule Studio, Classic Edition</h3>
+      <ul>
+        <li>Bisheriges Low-Code-Joule-Studio in SAP Build, umbenannt</li>
+        <li>Seit der TechEd: keine neuen Agenten-Projekte</li>
+        <li>Ab <strong>Januar 2027</strong> kein Anlegen oder Ändern mehr</li>
+      </ul>
+    </div>
+    <div class="card fragment fade-up">
+      <p class="card-label">offen</p>
+      <h3>Pro-Code-Agenten über A2A</h3>
+      <ul>
+        <li>Agenten in CAP, ABAP Cloud, Python oder auf Azure/AWS/GCP</li>
+        <li><strong>A2A-Protokoll</strong> + Agent Gateway: direkt mit Joule-Agenten sprechen und delegieren</li>
+        <li>Inbound A2A GA, Outbound folgt gestaffelt</li>
+      </ul>
+    </div>
+    <div class="card card-gold fragment fade-up">
+      <p class="card-label">neu</p>
+      <h3>Joule Studio</h3>
+      <ul>
+        <li>Ehemals „Joule Studio 2.0“, jetzt Hauptname</li>
+        <li>Fachbereich (No-Code / Intent-Based) und Entwickler (IDE &amp; CLI) in einer <strong>Git-basierten</strong> Umgebung</li>
+        <li>Volle GA in <strong>Q1/2027</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 Kap. 3b Zeitleiste ============ -->
+<section id="zeitleiste" data-id="zeitleiste">
+  <p class="kicker"><span class="chap">3</span>Fahrplan</p>
+  <h2>Die wichtigsten Termine</h2>
+  <div class="timeline">
+    <div class="tl-track" data-noedit><div class="tl-progress"></div><div class="tl-today"><span>Heute</span></div></div>
+    <div class="tl-items">
+      <div class="tl-item fragment fade-up"><h4>Okt 2026</h4><p>TechEd: Umbenennung in „Classic Edition“, neue Agenten-Projekte gesperrt</p></div>
+      <div class="tl-item fragment fade-up"><h4>Jetzt</h4><p>Neues Joule Studio im Phased GA, Inbound A2A allgemein verfügbar</p></div>
+      <div class="tl-item fragment fade-up hot"><h4>Januar 2027</h4><p>Classic Edition: Agenten weder anlegen noch ändern</p></div>
+      <div class="tl-item fragment fade-up gold"><h4>Q1/2027</h4><p>Volle GA Joule Studio: n8n-Orchestrierung, Business Data Cloud, MCP-Integrationen</p></div>
+      <div class="tl-item fragment fade-up"><h4>Ende Q2/2027</h4><p>Migrationsfenster endet; bestehende Skills &amp; Agents laufen bis dahin weiter</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 Kap. 3c Einordnung ============ -->
+<section id="einordnung" data-id="einordnung">
+  <p class="kicker"><span class="chap">3</span>Einordnung</p>
+  <h2>Warum der harte Schnitt?</h2>
+  <div class="two-col narrow-left">
+    <div class="card card-dim">
+      <p class="card-label warn">Grenzen von Low-Code-Agenten</p>
+      <ul>
+        <li>Komplexe Geschäftslogik</li>
+        <li>Versionierung mit Git</li>
+        <li>Systemübergreifende Orchestrierung</li>
+      </ul>
+    </div>
+    <div class="quote">
+      <p>Was als schneller Low-Code-Baukasten für erste Joule-Erweiterungen begann, reichte für echte, autonome End-to-End-Prozesse nicht aus.</p>
+      <p class="quote-sub">Das neue Joule Studio setzt auf Pro-Code-Support, Git-Integration, A2A-Interoperabilität und Unternehmenskontext aus Signavio, LeanIX und dem SAP Knowledge Graph.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 Kap. 4 Zertifizierung ============ -->
+<section id="zert" data-id="zert">
+  <p class="kicker"><span class="chap">4</span>Angebot für TechEd-Registrierte · auch virtuell</p>
+  <h2>Zertifizierung &amp; Lernen bis 31.12.2026</h2>
+  <div class="zert">
+    <div class="zert-offers">
+      <div class="offer fragment fade-up">
+        <div class="big" data-noedit>25&nbsp;%</div>
+        <div>
+          <h3>Rabatt auf SAP-Zertifizierungen</h3>
+          <p>für die Buchung von zwei Prüfungsversuchen</p>
+        </div>
+      </div>
+      <div class="offer fragment fade-up">
+        <div class="big" data-noedit>0&nbsp;€</div>
+        <div>
+          <h3>SAP Learning Hub, event edition</h3>
+          <p>Live-Sessions, Übungssysteme und KI-gestütztes Lernen</p>
+        </div>
+      </div>
+      <div class="countdown" data-noedit><span class="cd-num" id="cdDays">–</span><span class="cd-txt">Tage verbleiben bis zum 31.12.2026</span></div>
+      <p class="hint">Den 25-%-Code gibt es nach der kostenlosen Registrierung per Bestätigungs-E-Mail bzw. im SAP-Learning-Profil.</p>
+    </div>
+    <div class="qrs">
+      <figure><div class="qr" data-url="https://www.sap.com/events/teched/virtual.html" data-noedit></div><figcaption>TechEd Virtual / Learning Benefits<br><span class="mono">sap.com/events/teched/virtual.html</span></figcaption></figure>
+      <figure><div class="qr" data-url="https://learning.sap.com" data-noedit></div><figcaption>SAP Learning Zone<br><span class="mono">learning.sap.com</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 Kap. 5a Was passiert ist ============ -->
+<section id="abap" data-id="abap">
+  <p class="kicker"><span class="chap">5</span>Nachbeben nach der TechEd</p>
+  <h2>Aus für das lokale <span class="red">ABAP Cloud Developer Trial</span></h2>
+  <div class="abap-tl">
+    <div class="at fragment fade-up"><p class="at-date">24.08.2026</p><p>Neueste Version „ABAP Cloud Developer Trial 2025“ erscheint</p></div>
+    <div class="at-gap fragment fade-in" data-noedit><span>keine 3 Monate</span></div>
+    <div class="at fragment fade-up"><p class="at-date">Anfang Nov.</p><p>Ankündigung per Blogpost, kurz nach der TechEd</p></div>
+    <div class="at-gap fragment fade-in" data-noedit><span></span></div>
+    <div class="at at-hot fragment fade-up"><p class="at-date">17.11.2026</p><p>Kein Download mehr auf Docker Hub, kein Template in der SAP CAL</p></div>
+  </div>
+  <div class="facts">
+    <div class="fact fragment fade-up"><h4>Ohne Begründung</h4><p>SAP nennt keine Gründe und schließt eine erneute Bereitstellung aus.</p></div>
+    <div class="fact fragment fade-up"><h4>Laufende Systeme</h4><p>Vorhandene Docker-Images laufen weiter, bis die 3-monatige A4H-Lizenz (minisap) abläuft. Neue Schlüssel gibt es nicht.</p></div>
+  </div>
+</section>
+
+<!-- ============ 12 Kap. 5b Alternativen ============ -->
+<section id="alternativen" data-id="alternativen">
+  <p class="kicker"><span class="chap">5</span>Was SAP stattdessen anbietet</p>
+  <h2>Alles in die Cloud: SAP BTP, ABAP Environment</h2>
+  <div class="three-col">
+    <div class="card fragment fade-up">
+      <p class="card-label">SAP BTP Trial</p>
+      <h3>Kostenloses Probekonto</h3>
+      <p class="minus">Strikt auf <strong>90 Tage</strong> begrenzt, danach wird die Instanz samt eigener Entwicklungen gelöscht.</p>
+    </div>
+    <div class="card fragment fade-up">
+      <p class="card-label">SAP BTP Free Tier</p>
+      <h3>Freie Service-Stufe</h3>
+      <p class="minus">Setzt einen BTP-Vertrag voraus (CPEA/BTPEA oder Pay-As-You-Go mit Kreditkarte). <strong>Nächtliches Zwangs-Herunterfahren</strong>, enge Limits.</p>
+    </div>
+    <div class="card card-dim fragment fade-up">
+      <p class="card-label warn">Fehlender Scope</p>
+      <h3>Nur ABAP Cloud</h3>
+      <ul class="minus-list">
+        <li>Kein klassisches ABAP</li>
+        <li>Kein eigener Cloud Connector</li>
+        <li>Kein Fiori-Launchpad-Customizing</li>
+        <li>Keine Offline-Nutzung</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 Kap. 5c Zielgruppen ============ -->
+<section id="zielgruppen" data-id="zielgruppen">
+  <p class="kicker"><span class="chap">5</span>Wen es trifft</p>
+  <h2>Weit mehr als ABAP-Entwickler</h2>
+  <div class="chips">
+    <span class="chip ed fragment fade-up">ABAP-Entwickler</span>
+    <span class="chip ed fragment fade-up">Basis-Administratoren</span>
+    <span class="chip ed fragment fade-up">Integrationsexperten</span>
+    <span class="chip ed fragment fade-up">Fiori-/UI5-Entwickler</span>
+    <span class="chip ed fragment fade-up">Architekten</span>
+    <span class="chip ed fragment fade-up">Hochschulen</span>
+    <span class="chip ed fragment fade-up">Quereinsteiger &amp; Freelancer</span>
+    <span class="chip ed fragment fade-up">Open-Source-Projekte</span>
+  </div>
+  <div class="note">
+    <p><strong>SAP Mentoren</strong> hatten bei früheren drohenden „Sunsets“ gemeinsam mit SAP dokumentiert, warum diese Gruppen eine lokale, vollwertige Sandbox brauchen. Diese Ergebnisse wurden jetzt ohne Dialog übergangen.</p>
+  </div>
+</section>
+
+<!-- ============ 14 Kap. 5d Kritik ============ -->
+<section id="kritik" data-id="kritik">
+  <p class="kicker"><span class="chap">5</span>Warum die Community so aufgewühlt ist</p>
+  <h2>Es geht um das „Wie“</h2>
+  <div class="grid-2x2">
+    <div class="card fragment fade-up">
+      <h3>Verschenktes Engagement</h3>
+      <p>Community-Mitglieder haben bis August freiwillig Beta-Tests, Docker-Images, Skripte und Doku geprüft. Keine drei Monate später ist alles weg.</p>
+    </div>
+    <div class="card card-gold fragment fade-up">
+      <h3>DSAG bezieht Stellung</h3>
+      <p>„Es braucht einen einfachen Einstieg, keine höheren Hürden.“ Nachwuchs und Transformation brauchen niedrigschwellige Lern- und Testmöglichkeiten.</p>
+    </div>
+    <div class="card fragment fade-up">
+      <h3>Sandbox für Open Source fehlt</h3>
+      <p>abapGit, Open-Source-Bibliotheken, Custom Code Checks und CI/CD-Pipelines nutzten das Docker-Image als verlässliche Testbasis.</p>
+    </div>
+    <div class="card fragment fade-up">
+      <h3>Widerspruch zur Projektrealität</h3>
+      <p>Mitten in der S/4HANA-Transformation braucht es klassisches ABAP <em>und</em> ABAP Cloud. Genau dieser Lernort fällt weg.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 15 Gesamtfazit ============ -->
+<section id="fazit" data-id="fazit">
+  <p class="kicker">Gesamtfazit</p>
+  <h2>Aufbruch und Ernüchterung in derselben Woche</h2>
+  <div class="contrast">
+    <div class="ct up fragment fade-right">
+      <span class="ct-ico" data-noedit>↗</span>
+      <h3>TechEd</h3>
+      <p>Pro-Code-Agenten, offene Ökosysteme, Cloud-Innovation</p>
+    </div>
+    <div class="ct down fragment fade-left">
+      <span class="ct-ico" data-noedit>↘</span>
+      <h3>Wenige Tage später</h3>
+      <p>Stiller Abschied vom lokalen ABAP Developer Trial</p>
+    </div>
+  </div>
+  <div class="quote fragment fade-up">
+    <p>Dass SAP die Zielgruppen-Analysen der Mentoren und das Testing-Engagement der Community übergeht, belastet das Vertrauen im Ökosystem spürbar.</p>
+  </div>
+</section>
+
+<!-- ============ 16 Abschluss ============ -->
+<section id="danke" data-id="danke">
+  <div class="end">
+    <div class="end-text">
+      <p class="kicker">Jetzt seid ihr dran</p>
+      <h2>Diskussion beim Ebbelwoi</h2>
+      <ul class="questions">
+        <li class="fragment fade-up">Wer setzt schon auf SAP-Managed Joule?</li>
+        <li class="fragment fade-up">Wie plant ihr die Migration aus Joule Studio Classic?</li>
+        <li class="fragment fade-up">Womit ersetzt ihr das lokale ABAP-Trial?</li>
+      </ul>
+      <p class="thanks"><strong>Danke!</strong> Christian Braukmüller · SAP Stammtisch Frankfurt</p>
+    </div>
+    <img class="end-bembel" src="assets/bembel.png" alt="Bembel SAP Stammtisch Frankfurt" data-noedit>
+  </div>
+</section>
+
+</div>
+</div>
+
+<!-- ============ Edit-Werkzeugleiste ============ -->
+<div class="edit-ui" id="editUi">
+  <button class="edit-toggle" id="editToggle" title="Bearbeiten ein/aus (Taste E)" aria-pressed="false">✎</button>
+  <div class="edit-bar" id="editBar">
+    <span class="edit-status" id="editStatus">Bearbeiten</span>
+    <button id="btnResetSlide" title="Alle Änderungen dieser Folie verwerfen">↺ Folie zurücksetzen</button>
+    <button id="btnResetAll" title="Alle Änderungen aller Folien verwerfen">⟲ Alles zurücksetzen</button>
+    <button id="btnExport" title="Änderungen als JSON-Datei sichern">⤓ Export</button>
+    <button id="btnImport" title="Gesicherte Änderungen laden">⤒ Import</button>
+    <input type="file" id="importFile" accept="application/json" hidden>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="lib/reveal.js"></script>
+<script src="lib/qrcode.js"></script>
+<script src="edit.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1600, height: 900, margin: 0.04,
+    hash: true, controls: true, progress: true,
+    slideNumber: 'c/t', center: false,
+    transition: 'slide', backgroundTransition: 'fade',
+    navigationMode: 'linear'
+  }).then(() => {
+    // QR-Codes
+    document.querySelectorAll('.qr[data-url]').forEach(el => {
+      const q = qrcode(0, 'M'); q.addData(el.dataset.url); q.make();
+      el.innerHTML = q.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+    });
+    // Countdown bis 31.12.2026
+    const end = new Date(2026, 11, 31, 23, 59, 59);
+    const days = Math.ceil((end - new Date()) / 864e5);
+    document.getElementById('cdDays').textContent = days > 0 ? days : 0;
+    SlideEditor.init(Reveal);
+  });
+</script>
+</body>
+</html>
